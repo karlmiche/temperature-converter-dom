@@ -5,7 +5,7 @@ var form = document.querySelector("form");
 var div = document.querySelector("temp-display");
 var entry = document.querySelector("temp-entry");
 
-//a function to convert the temp from f to c or otherwise
+//a function to convert the temp from f to c or reverse
 
 var convertF = function(num) {
     return ((num - 32) * (5/9));
