@@ -2,11 +2,13 @@ console.log('Hello, front end');
 
 //cache the DOM
 var form = document.querySelector("form");
-var div = document.querySelector("temp-display");
-var entry = document.querySelector("temp-entry");
+var div = document.getElementById("temp-display");
+var entry = document.getElementById("temp-entry");
+const f = document.getElementById("f");
+const c = document.getElementById("c");
+const subby = document.getElementById("submit");
 
 //a function to convert the temp from f to c or reverse
-
 var convertF = function(num) {
     return ((num - 32) * (5/9));
 }
@@ -15,49 +17,38 @@ var convertC = function(num) {
     return ((num * (9/5)) + 32);
 }
 
-let input = 0
+let value = 0 
 
-var userChoseF = document.getElementById("f").checked
-var userChoseC = document.getElementById("c").checked
+function getValue() {
+    console.log(entry);
+    return parseInt(entry.value);
+}
 
-var input = function updateDisplay(userChoseC, userChoseF){
-    document.getElementById.entry.value
-    document.getElementById.div.innerText=result.value}
-
-var result = function userInput() {document.getElementById.form.addEventListener("submit", (e) =>{
-    e.preventDefault() 
-    temperature = document.getElementById.entry.value;
-
-//conditionals to check which radio button the user has selected and which formula to use
-if (userChoseF === true){
-    convertF(input);
-      updateDisplay();
-      return;
-  }else {
-      convertC(input);
-      updateDisplay();
-      return;
-  }
-  })
+subby.onclick = function inputTemp (event){
+event.preventDefault();
+//when a user enters a number in form and clicks submit, 
+//that value is kept and named. 
+    console.log(value);
+//if a user checks the radio button c,
+    if (f.checked === true) {
+//we ask the value be returned in f
+        value = convertF(getValue());
+        console.log(value);
+        div.innerHTML = value;
+        return value;
 }
 
 
 
-/********* Anna's Class Notes how to solve
- * 
- * 
- *  * var form = document.querySelector("form");
-   var div = document.querySelector("temp-display");
+//if a user checks the radio button f,
+    if (c.checked === true) { 
+//we ask the value be returned in c
+        value = convertC(getValue());
+        console.log(value);
+        div.innerHTML = value;
+        return value;
+//c value is displayed in my div
+    }
+}
 
- * //function to run when the form is submitted
- * form.addEventListener("submit", function(e){
- * e.preventDefault();
- * 
- * var tempToConvert = form.elements["input"].value;
- * 
- * //check for celcius or fahrenheit
- * 
- *
- * }
- * 
- * ***********/
+
